@@ -16,7 +16,7 @@ switch ($action) {
 			$user = new User();
 	    $cityList = $user->getOne($userId);
 
-	    include ('views/show_one_city.php');
+	    include ('views/bemikaLandingsPage.php');
 	break;
 	
 	default:
@@ -26,7 +26,7 @@ switch ($action) {
 			$user = new User();
 	    $cityList = $user->getAll();
 	
-	    include ('views/show_all_city.php');
+	    include ('views/bemikaLandingsPage.php');
 		break;
 }
 
