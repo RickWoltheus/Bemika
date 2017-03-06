@@ -9,24 +9,24 @@ $action = isset($_GET['action']) ? $_GET['action'] : '';
 // Het stukje hieronder is de (front) controller
 switch ($action) {
 	
-	case 'get_one_city':
-	
-			$userId = isset($_GET['userId']) ? $_GET['userId'] : '2';
+	case 'movies':
+	    $which_page = "movies";
+			
 			
 			$user = new User();
-	    $cityList = $user->getOne($userId);
-
-	    include ('views/bemikaLandingsPage.php');
+	 
+      include ('views/head/standardHead.php');
+	    include ('views/content/bemikaMoviesPage.php');
 	break;
-	
 	default:
-	
+	    $which_page = "landingsPage";
 			$userId = isset($_GET['userId']) ? $_GET['userId'] : '';
 			
 			$user = new User();
 	    $cityList = $user->getAll();
 	
-	    include ('views/bemikaLandingsPage.php');
+	    include ('views/head/landingsHead.php');
+	    include ('views/content/bemikaLandingsPage.php');
 		break;
 }
 
