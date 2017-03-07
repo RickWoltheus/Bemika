@@ -41,7 +41,7 @@
         </div></div>
         <div class="tak2 hvr-sweep-to-right">
             <div class="tak2-inhoud"><p style="color: white;">A kick-ass team of well minded and good hearted people and organisations around the world in order to jointly create innovative solutions to specific and neglected needs, generating the greater welfare and personal development for various types of users and facilitating their daily activities.</p>
-            <a href="views/software.php" target="_self"><button class="button-verken-software">Discover software</button></a>
+            <a href="?action=software" target="_self"><button class="button-verken-software">Discover software</button></a>
         </div>
         </div>
     </div>
@@ -52,13 +52,13 @@
     <div class="tak2-content">
         <div class="tak3 hvr-sweep-to-right2">
             <div class="tak3-inhoud"><p style="color: white;">Rocking collaboration between creative, music loving individuals and organisations through temporary and long lasting projects, providing opportunity for personal development and creativity.</p>
-            <a href="views/music.php" target="_self"><button class="button-verken-music">Discover music</button></a>
+            <a href="?action=music" target="_self"><button class="button-verken-music">Discover music</button></a>
 
         </div>
         </div>
         <div class="tak4 hvr-sweep-to-right3">
             <div class="tak4-inhoud"><p style="color: white;">A safe, fun filled, hard working environment for children, adolescents and adults of all backgrounds with the emphasis on personal character-building development through healthy physical activity and strong ties with local community.</p>
-            <a href="views/sport.php" target="_self"><button class="button-verken-telecom">Discover sport</button></a>
+            <a href="?action=sport" target="_self"><button class="button-verken-telecom">Discover sport</button></a>
         </div>
         </div>
     </div>
