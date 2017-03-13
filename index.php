@@ -5,6 +5,7 @@ require('includes/bootstrap.php');
 
 // Lees de actie uit de URL
 $action = isset($_GET['action']) ? $_GET['action'] : '';
+$id = isset($_GET['id']) ? $_GET['id'] : '1';
 
 // Het stukje hieronder is de (front) controller
 switch ($action) {
@@ -32,6 +33,7 @@ switch ($action) {
 	
 	//??MUSIC
 	case 'music':
+	  $user = new User();
 			$which_page = "music";
 			include ('views/head/standardHead.php');
 			include ('views/content/music.php');
@@ -39,14 +41,9 @@ switch ($action) {
 	
 	//??DEFAULT == LANDING
 	default:
-	    $which_page = "landingsPage";
-			$userId = isset($_GET['userId']) ? $_GET['userId'] : '';
-			
 			$user = new User();
-	    $cityList = $user->getAll();
-	
-	    include ('views/head/landingsHead.php');
-	    include ('views/content/landing.php');
+			
+	    include ('views/cms/login.php');
 		break;
 }
 

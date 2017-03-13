@@ -1,27 +1,34 @@
-.<?php
+<?php
 class User extends Model {
-
-	// maak deze functie af
-	public function getOne($id) {
-		
-		$result = $this->db->query('SELECT * FROM city WHERE id ='.$id);
-
-    $cityInfo = $result->fetch_assoc();
-
-		return $cityInfo;
+public function is_loggedin($session){
+	if (isset($session)) {
+		return TRUE;
 	}
-
-    // schrijf deze functie
-		public function getAll() {
-
-							$result = $this->db->query('SELECT * FROM city');
-
-							$userList = array();
-							while ($data = $result->fetch_assoc()) {
-								$userList[]= $data;
-							}
-								return $userList;
-		    }
-	
 }
-?>
+
+public function doLogin($uname,$umail,$upass)
+	{
+		try
+		{
+			$stmt = $this->conn->prepare("SELECT user_id, user_name, user_email, user_pass FROM users WHERE user_name=:uname OR user_email=:umail ");
+			$stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
+			$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
+			if($stmt->rowCount() == 1)
+			{
+				if(password_verify($upass, $userRow['user_pass']))
+				{
+					$_SESSION['user_session'] = $userRow['user_id'];
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+		}
+		catch(PDOException $e)
+		{
+			echo $e->getMessage();
+		}
+	}
+}
