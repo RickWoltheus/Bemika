@@ -20,7 +20,7 @@ class Model {
   public function getAll() {
 
             $result = $this->db->query('SELECT * FROM `'.$this->table.'`');
-
+            echo $this->table;
             $userList = array();
             while ($data = $result->fetch_assoc()) {
               $userList[]= $data;

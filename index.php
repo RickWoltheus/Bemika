@@ -41,8 +41,12 @@ switch ($action) {
 	
 	//??DEFAULT == LANDING
 	default:
-			$user = new User();
-			
+			$login = new User();
+			$test = $login->getAll();
+			var_dump($test);
+			if($login->getAll()){
+				echo "string";
+			}
 	    include ('views/cms/login.php');
 		break;
 }
