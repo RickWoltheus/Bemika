@@ -39,16 +39,32 @@ switch ($action) {
 			include ('views/content/music.php');
 	break;
 	
+	//??ARTICLES
+	case 'articles':
+	$page_nr = isset($_GET['pagenr'])?$_GET['pagenr']:1;
+	$article = new Article();
+	include('views/content/articles.php');
+	break;
+	
+	//??NEW ADMIN
+	case 'register_admin':
+		$user = new User(DB_HOST, DB_NAME, DB_USERNAME, DB_PASSWORD);
+		
+    
+    include('views/cms/new_admin.php');
+	break;
+	
+	//??LOGIN
+	case 'admin_login':
+	  $login = new User(DB_HOST, DB_NAME, DB_USERNAME, DB_PASSWORD);
+
+	  include ('views/cms/login.php');
+	break;
+	
 	//??DEFAULT == LANDING
 	default:
-			$login = new User();
-			$test = $login->getAll();
-			var_dump($test);
-			if($login->getAll()){
-				echo "string";
-			}
-	    include ('views/cms/login.php');
-		break;
+
+	break;
 }
 
 

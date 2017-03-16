@@ -9,7 +9,7 @@ define('PROJECT_STATUS','development');
 
 // databasegegevens
 define('DB_HOST','localhost');
-define('DB_NAME','rcms');
+define('DB_NAME','bemika');
 define('DB_USERNAME','root');
 define('DB_PASSWORD','');
 

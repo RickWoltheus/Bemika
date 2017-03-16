@@ -1,19 +1,12 @@
-<?php  
-
-if(isset($_POST['submit']))
-{
-	$uname = strip_tags($_POST['uname']);
-	$upass = strip_tags($_POST['pass']);
-		
-	if($login->doLogin($uname,$upass))
-	{
-		$login->redirect('?Page=cms');
+<?php
+if (isset($_POST['submit'])) {
+	if($login->dologin($_POST['uname'],$_POST['pass'])) {
+		$login->redirect('$action=cms');
+	}else{
+		echo "failed to log in";
 	}
-	else
-	{
-		$error = "Wrong Details !";
-	}	
-}?>
+}
+?>
 <body>
 
 <div class="signin-form">

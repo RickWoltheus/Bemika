@@ -1,23 +1,42 @@
 <?php
-class User extends Model {
-public function is_loggedin($session){
-	if (isset($session)) {
-		return TRUE;
-	}
-}
 
-public function doLogin($uname,$upass)
+class User extends Model
+{
+	//attributes
+	protected $_db;
+	protected $_host;
+	protected $_dbname;
+	protected $_usr;
+	protected $_pass;
+	
+	//methods
+	function __construct($host, $dbname, $usr, $pass)
 	{
 		try
 		{
-			$result = $this->db->query("SELECT user_id, user_name, user_email, user_pass FROM users WHERE user_name=:uname");
-			
-			$result->execute(array(':uname'=>$uname));
-			echo $result;
-			$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
-			if($result->rowCount() == 1)
+			 $this->_host = $host;
+			 $this->_dbname = $dbname;
+			 $this->_usr = $usr;
+			 $this->_pass = $pass;
+			 
+		   $this->_db = new PDO("mysql:host={$this->_host};dbname={$this->_dbname}",$this->_usr,$this->_pass);
+		   $this->_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		}
+		catch(PDOException $e)
+		{
+			echo $e->getMessage;
+		}
+	}
+	
+public function dologin($uname,$pass)
+{
+		try
+		{
+			$result = $this->_db->prepare("SELECT id, name, email, pass FROM users WHERE name=:uname OR email=:umail ");
+			$result->execute(array(':uname'=>$uname, ':umail'=>$uname));
+			$userRow=$result->fetch(PDO::FETCH_ASSOC);
 			{
-				if(password_verify($upass, $userRow['user_pass']))
+				if(password_verify($pass, $userRow['pass']))
 				{
 					$_SESSION['user_session'] = $userRow['user_id'];
 					return true;
@@ -33,4 +52,29 @@ public function doLogin($uname,$upass)
 			echo $e->getMessage();
 		}
 	}
+public function register($uname, $umail, $pass){
+	try
+	{
+		echo "string";
+		$hash_pass = password_hash($pass, PASSWORD_DEFAULT);
+		
+		$result = $this->_db->prepare("INSERT INTO users(name,email,pass) 
+																								 VALUES(:uname, :umail, :upass)");
+												
+		$result->bindparam(":uname", $uname);
+		$result->bindparam(":umail", $umail);
+		$result->bindparam(":upass", $hash_pass);										  
+			
+		$result->execute();	
+		
+		return $result;	
+	}
+	catch(PDOException $e)
+	{
+		echo $e->getMessage();
+	}		
 }
+}
+
+
+
