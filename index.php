@@ -47,7 +47,7 @@ switch ($action) {
 	break;
 	
 	//??NEW ADMIN
-	case 'register_admin':
+	case 'admin_register':
 		$user = new User(DB_HOST, DB_NAME, DB_USERNAME, DB_PASSWORD);
 		
     
