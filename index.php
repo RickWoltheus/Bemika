@@ -50,7 +50,6 @@ switch ($action) {
 	case 'admin_register':
 		$user = new User(DB_HOST, DB_NAME, DB_USERNAME, DB_PASSWORD);
 		
-    
     include('views/cms/new_admin.php');
 	break;
 	
@@ -63,7 +62,7 @@ switch ($action) {
 	
 	//??DEFAULT == LANDING
 	default:
-
+    include ('views/content/landing.php');
 	break;
 }
 
