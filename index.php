@@ -46,6 +46,7 @@ switch ($action) {
 	include('views/content/articles.php');
 	break;
 	
+	//?? HERE STARTS CMS ITEMS
 	//??NEW ADMIN
 	case 'admin_register':
 		$user = new User(DB_HOST, DB_NAME, DB_USERNAME, DB_PASSWORD);
@@ -53,6 +54,29 @@ switch ($action) {
     include('views/cms/new_admin.php');
 	break;
 	
+	//??ITEMS 
+	case 'items':
+	$item = new Article();
+	include ('views/cms/items.php');
+	break;
+	
+	//??NEW ITEM 
+	case'new_item':
+	$item = new Article();
+	include ('views/cms/add.php');
+	break;
+	
+	//??DELETE ITEM 
+	case'delete':
+	$item = new $_GET['class']();
+	include ('views/cms/delete.php');
+	break;
+	
+	//??EDIT ITEM 
+	case 'edit':
+	$item = new $_GET['class']();
+	include ('views/cms/edit.php');
+	break;
 	//??LOGIN
 	case 'admin_login':
 	  $login = new User(DB_HOST, DB_NAME, DB_USERNAME, DB_PASSWORD);
