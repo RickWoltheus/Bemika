@@ -38,7 +38,7 @@ public function dologin($uname,$pass)
 			{
 				if(password_verify($pass, $userRow['pass']))
 				{
-					$_SESSION['user_session'] = $userRow['user_id'];
+					$_SESSION['user'] = $userRow['name'];
 					return true;
 				}
 				else
@@ -55,7 +55,7 @@ public function dologin($uname,$pass)
 public function register($uname, $umail, $pass){
 	try
 	{
-		echo "string";
+		
 		$hash_pass = password_hash($pass, PASSWORD_DEFAULT);
 		
 		$result = $this->_db->prepare("INSERT INTO users(name,email,pass) 
@@ -73,6 +73,13 @@ public function register($uname, $umail, $pass){
 	{
 		echo $e->getMessage();
 	}		
+}
+public function getUsersInfo(){
+	$resultUsers = $this->_db->query("SELECT * FROM users");
+	$result = $resultUsers->fetchAll(PDO::FETCH_ASSOC);
+
+	return $result;
+	
 }
 }
 

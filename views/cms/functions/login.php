@@ -1,7 +1,10 @@
 <?php
 if (isset($_POST['submit'])) {
 	if($login->dologin($_POST['uname'],$_POST['pass'])) {
-		$login->redirect('$action=cms');
+		if( isset($_SESSION["user"]) ){
+	    $login->redirect('?action=dashboard');
+  }
+	
 	}else{
 		echo "failed to log in";
 	}

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require('includes/config.php');
 require('includes/bootstrap.php');
 
@@ -43,51 +43,101 @@ switch ($action) {
 	case 'articles':
 	$page_nr = isset($_GET['pagenr'])?$_GET['pagenr']:1;
 	$article = new Article();
+	include('views/head/cmsHead.php');
 	include('views/content/articles.php');
+	break;
+	//??FETCHES PAGES FOR LOAD MORE
+	case 'fetch_pages':
+		$class = new $_POST['class']();
+		include ('includes/fetch_pages.php');
+		break;
+	
+	//??DEFAULT == LANDING
+	default:
+		include ('views/content/landing.php');
 	break;
 	
 	//?? HERE STARTS CMS ITEMS
-	//??NEW ADMIN
-	case 'admin_register':
-		$user = new User(DB_HOST, DB_NAME, DB_USERNAME, DB_PASSWORD);
-		
-    include('views/cms/new_admin.php');
+	//??DASHBOARD
+	case 'dashboard':
+		include('views/cms/parts/menu.php');
+		include('includes/session.php');
+	break;
+	
+	//??PAGES
+	case 'pages':
+	$page = new Page();
+	$category = new Category();
+	include ('views/cms/parts/menu.php');
+	include('views/cms/functions/pages.php');
+	include('includes/session.php');
+	break;
+	
+	//??activity
+	case 'activity':
+	$activity = new Activity();
+	include ('views/cms/parts/menu.php');
+	include ('views/cms/functions/activity.php');
+	include('includes/session.php');
 	break;
 	
 	//??ITEMS 
 	case 'items':
-	$item = new Article();
-	include ('views/cms/items.php');
+	$item = new $_GET['class']();
+	include ('views/cms/parts/menu.php');
+	include ('views/cms/functions/items.php');
+	include('includes/session.php');
 	break;
 	
 	//??NEW ITEM 
 	case'new_item':
-	$item = new Article();
-	include ('views/cms/add.php');
+	$category = new Category();
+	$activity = new Activity();
+	$item = new $_GET['class']();
+	include ('views/cms/parts/menu.php');
+	include ('views/cms/functions/add.php');
+	include('includes/session.php');
 	break;
 	
 	//??DELETE ITEM 
 	case'delete':
 	$item = new $_GET['class']();
-	include ('views/cms/delete.php');
+	include ('views/cms/functions/delete.php');
+	include('includes/session.php');
 	break;
 	
 	//??EDIT ITEM 
 	case 'edit':
+	$category = new Category();
+	$activity = new Activity();
 	$item = new $_GET['class']();
-	include ('views/cms/edit.php');
+	include ('views/cms/parts/menu.php');
+	include ('views/cms/functions/edit.php');
+	include('includes/session.php');
 	break;
 	//??LOGIN
 	case 'admin_login':
 	  $login = new User(DB_HOST, DB_NAME, DB_USERNAME, DB_PASSWORD);
 
-	  include ('views/cms/login.php');
+	  include ('views/cms/functions/login.php');
 	break;
 	
-	//??DEFAULT == LANDING
-	default:
-    include ('views/content/landing.php');
+	//??NEW ADMIN
+	case 'new_admin':
+		$user = new User(DB_HOST, DB_NAME, DB_USERNAME, DB_PASSWORD);
+		include ('views/cms/parts/menu.php');
+		include('views/cms/functions/new_admin.php');
+		include('includes/session.php');
 	break;
+	
+	//?? PAGE WITH ALL ADMINS
+	case 'accounts':
+		$user = new User(DB_HOST, DB_NAME, DB_USERNAME, DB_PASSWORD);;
+		include ('views/cms/parts/menu.php');
+		include('views/cms/functions/users.php');
+		break;
+	
+
 }
 
 

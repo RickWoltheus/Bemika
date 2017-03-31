@@ -1,0 +1,91 @@
+/* body */
+body {
+    background-color: white;
+    margin: 0 auto;
+    font-family: "futura";
+}
+
+.pages {
+  float: left;
+  width: calc(100% - 300px);
+  position: relative;
+}
+
+/* navbar pages */
+.log-nav {
+  width: 100%;
+  height: 40px;
+  background-color: lightgrey;
+  border-bottom: 1px solid grey;
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+button.accordion {
+    background-color: White;
+    color: #66dcec;
+    border-bottom:2px solid grey;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+    padding: 25px;
+    width: 100%;
+    text-align: left;
+    font-size: 18px;
+    outline: none;
+    transition: 0.4s;
+    height: 100px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+button.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.button {
+  padding-top: 5px;
+  display: inline-block;
+  float: right;
+}
+
+/* category button */
+#cat-button {
+    background-color: #66dcec;
+    border: none;
+    color: white;
+    width: 180px;
+    height: 30px;
+    margin: 0 auto;
+    border-radius: 20px;
+    margin-right: 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* edit button */
+#edit-button {
+    background-color: #66dcec;
+    border: none;
+    color: white;
+    width: 180px;
+    height: 30px;
+    margin: 0 auto;
+    border-radius: 20px;
+    margin-right: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+}
