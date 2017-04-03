@@ -193,7 +193,7 @@ class Model {
   }
   
   //gets items for the loadmore
-  public function loadMore($page, $item_per_page){
+  public function loadMore($page, $item_per_page, $table){
   	$page_number = filter_var($page, FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH);
   
   	//throw HTTP error if page number is not valid
@@ -204,21 +204,18 @@ class Model {
   
   	//get current starting point of records
   	$position = (($page_number-1) * $item_per_page);
-  
+
   	//fetch records using page position and item per page. 
-  	$results = $this->_db->prepare("SELECT id, genre FROM articles ORDER BY id DESC LIMIT ?, ?");
-  
-  	//bind parameters for markers, where (s = string, i = integer, d = double,  b = blob)
-  	//for more info https://www.sanwebe.com/2013/03/basic-php-mysqli-usage
-  	$results->bind_param("dd", $position, $item_per_page); 
-  	$results->execute(); //Execute prepared Query
-  	$results->bind_result($id, $genre); //bind variables to prepared statement
-  
-  	//output results from database
-  
-  	while($results->fetch()){ //fetch values
-  		echo '<li>'.$id.') <strong>'.$genre.'</strong></li>';	
-  	}
+  	$results = $this->_db->query("SELECT * FROM $this->_table DESC LIMIT $item_per_page");
+    echo ("SELECT * FROM $this->_table DESC LIMIT $item_per_page");
+    $List = array();
+    var_dump($results);
+    while ($data = $results->fetch_assoc()) {
+      $List[]= $data;
+    }
+    var_dump($results);
+    return $List;
+
   }
   
 

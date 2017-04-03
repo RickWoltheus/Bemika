@@ -1,19 +1,34 @@
-djiejdiej
-<div class="activity">
-  <table>
-  <?php 
-   $activities = $activity->getAll();
-   
-   foreach ($activities as $oneItem) {
-     echo "<tr>";
-     foreach ($oneItem as $key => $value) {
-       echo "<td>".$value."</td>";
-     }
-     echo "</tr>";
-   }
-   ?>
-   </table>
-</div>
+<!doctype html>
+<!-- Ashvith Arumuganathan -->
+<html>
+<head>
 
+<title> CMS </title>
+<link href="https://fonts.googleapis.com/css?family=Palanquin+Dark" rel="stylesheet">
+<script src="https://use.fontawesome.com/e28b54a9f9.js"></script>
 
+<!-- CSS -->
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/activity.css">
 
+</head>
+<body>
+  
+  <?php include('views/cms/parts/menu.php') ?>
+  
+  <!-- content -->
+  <div id="content">
+  
+  <!-- navbar activity log -->
+    <div class="log-nav">
+      <h2 class="bread">Activities</h2>
+    </div>
+    
+      <div class="wrapper">
+          <ul id="results"><!-- results appear here --></ul>
+          <div align="center">
+              <button id="load_more_button"><img src="img/ajax-loader.gif"  class="animation_image" style="float:left;">Load More</button> <!-- load button -->
+          </div>
+      </div>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+      <script type="text/javascript" src="javascript/loadMore.js"></script>

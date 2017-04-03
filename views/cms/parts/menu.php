@@ -1,29 +1,15 @@
-<!doctype html>
-<!-- Ashvith Arumuganathan -->
-<html>
-<head>
-
-<title> CMS </title>
-
-<!-- CSS -->
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/pages.css">
-
-</head>
-<body>
 
 <!-- header -->
 <div id="header">
 
 <!-- brand name -->
   <div id="name-brand">
-    <h2 class="name-brand">Bemika</h2>
+    <h2 class="name-brand"><?php echo $_SESSION['user'] ?></h2>
   </div>
 
 <!-- dropdown -->
 <div class="dropdown">
-  <button class="dropbtn"><?php echo $_SESSION['user'] ?>
-  <img src="img/profile.png"></button>
+  <a class="dropbtn"><i class="fa fa-user-circle-o" aria-hidden="true"></i><?php echo $_SESSION['user'] ?></a>
   <div class="dropdown-content">
     <a href="#">Lock screen</a>
     <a href="#">Log out</a>
@@ -37,24 +23,21 @@
 
 <!-- search bar -->
 <form method="get" action="/search" id="search">
-<input name="q" type="text" size="40" placeholder="Search..." />
+<input name="q" type="text" size="60" placeholder="Search..." />
 </form>
 
 <!-- admin name -->
-<h2 class="name-admin"><?php echo $_SESSION['user'] ?></h2>
+<h2 class="name-admin">Milos Despotovic</h2>
 
 <!-- navbar -->
 <div id="navbar">
-  <ul>
-    <li><img class="nav-icon" src="img/dashboard.png"><a class="active" href="?action=dashboard">Dashboard</a></li>
-    <li><img class="nav-icon" src="img/activity_log.png"><a href="?action=activity">Activity log</a></li>
-    <li><img class="nav-icon" src="img/pages.png"><a href="?action=pages">Pages</a></li>
-    <li><img class="nav-icon" src="img/charts.png"><a href="?action=charts">Charts</a></li>
-    <li><img class="nav-icon" src="img/charts.png"><a href="?action=accounts">accounts</a></li>
-    </ul>
+ 
+    <a href="?action=dashboard"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a>
+    <a class="active" href="?action=activity&page=activitys"><i class="fa fa-clone" aria-hidden="true"></i>Activity log</a>
+    <a href="?action=pages"><i class="fa fa-file-o" aria-hidden="true"></i>Pages</a>
+    <a href="?action=charts"><i class="fa fa-bar-chart" aria-hidden="true"></i>Charts</a>
+    <a href="?action=accounts"><i class="fa fa-users" aria-hidden="true"></i>Accounts</a>
+  
 </div>
 
 </div>
-
-<!-- content -->
-

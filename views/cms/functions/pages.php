@@ -1,13 +1,30 @@
+<!doctype html>
+<!-- Ashvith Arumuganathan -->
+<html>
+<head>
 
+<title> CMS </title>
+<link href="https://fonts.googleapis.com/css?family=Palanquin+Dark" rel="stylesheet">
+<script src="https://use.fontawesome.com/e28b54a9f9.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+
+</head>
+<body>
+  
+  
+<?php include('views/cms/parts/menu.php') ?>
 <!-- content -->
-
+<div id="content">
 <!-- navbar pages -->
 <div class="log-nav">
   <div class="button">
-  <button id="cat-button" onclick="window.location.href='?action=items&class=Page';">Edit Pages</button>
+  <button id="cat-button" onclick="window.location.href='?action=items&page=pages&class=Page';">Edit Pages</button>
   </div>
   <div class="button">
-  <button id="edit-button" onclick="window.location.href='?action=articles';">Add category</button>
+  <button id="edit-button" onclick="window.location.href='?action=items&page=new_cat&class=Category';">Add category</button>
   </div>
 </div>
 
@@ -68,3 +85,5 @@ for (i = 0; i < acc.length; i++) {
   }
 }
 </script>
+</body>
+</html>

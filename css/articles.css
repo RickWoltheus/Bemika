@@ -21,11 +21,44 @@ ol {
 
 #log-nav-item li {
   display: inline-block;
-  -webkit-flex: 1 1 20%;
-      -ms-flex: 1 1 20%;
-          flex: 1 1 20%;
+  -webkit-flex: 1 1 16%;
+      -ms-flex: 1 1 16%;
+          flex: 1 1 16%;
+  max-width: 16%;
   padding-top: 10px;
   color: grey;
+}
+
+
+.button {
+  padding-top: 5px;
+  display: inline-block;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  
+
+}
+
+/* edit button */
+.edit-button {
+    background-color: #66dcec;
+    border: none;
+    color: white;
+    width: 180px;
+    height: 30px;
+    margin: 0 auto;
+    border-radius: 20px;
+    margin-right: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.edit-button:focus {
+  outline: none;
 }
 
 /* activity logs */
@@ -50,10 +83,10 @@ ol {
 
 #log-text li {
   display: inline-block;
-  -webkit-flex: 1 1 20%;
-      -ms-flex: 1 1 20%;
-          flex: 1 1 20%;
-  padding-right: 10px;
+  -webkit-flex: 1 1 16%;
+      -ms-flex: 1 1 16%;
+          flex: 1 1 16%;
+  max-width: 16%;
   padding-top: 10px;
   color: grey;
 }

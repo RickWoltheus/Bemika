@@ -41,9 +41,7 @@ switch ($action) {
 	
 	//??ARTICLES
 	case 'articles':
-	$page_nr = isset($_GET['pagenr'])?$_GET['pagenr']:1;
 	$article = new Article();
-	include('views/head/cmsHead.php');
 	include('views/content/articles.php');
 	break;
 	//??FETCHES PAGES FOR LOAD MORE
@@ -60,7 +58,7 @@ switch ($action) {
 	//?? HERE STARTS CMS ITEMS
 	//??DASHBOARD
 	case 'dashboard':
-		include('views/cms/parts/menu.php');
+		include('views/cms/functions/dashboard.php');
 		include('includes/session.php');
 	break;
 	
@@ -68,15 +66,14 @@ switch ($action) {
 	case 'pages':
 	$page = new Page();
 	$category = new Category();
-	include ('views/cms/parts/menu.php');
 	include('views/cms/functions/pages.php');
 	include('includes/session.php');
 	break;
 	
 	//??activity
 	case 'activity':
+	$article = new Article();
 	$activity = new Activity();
-	include ('views/cms/parts/menu.php');
 	include ('views/cms/functions/activity.php');
 	include('includes/session.php');
 	break;
@@ -84,7 +81,6 @@ switch ($action) {
 	//??ITEMS 
 	case 'items':
 	$item = new $_GET['class']();
-	include ('views/cms/parts/menu.php');
 	include ('views/cms/functions/items.php');
 	include('includes/session.php');
 	break;
@@ -94,9 +90,9 @@ switch ($action) {
 	$category = new Category();
 	$activity = new Activity();
 	$item = new $_GET['class']();
-	include ('views/cms/parts/menu.php');
-	include ('views/cms/functions/add.php');
 	include('includes/session.php');
+	include ('views/cms/functions/add.php');
+	
 	break;
 	
 	//??DELETE ITEM 
@@ -111,7 +107,6 @@ switch ($action) {
 	$category = new Category();
 	$activity = new Activity();
 	$item = new $_GET['class']();
-	include ('views/cms/parts/menu.php');
 	include ('views/cms/functions/edit.php');
 	include('includes/session.php');
 	break;
@@ -132,8 +127,7 @@ switch ($action) {
 	
 	//?? PAGE WITH ALL ADMINS
 	case 'accounts':
-		$user = new User(DB_HOST, DB_NAME, DB_USERNAME, DB_PASSWORD);;
-		include ('views/cms/parts/menu.php');
+		$user = new User(DB_HOST, DB_NAME, DB_USERNAME, DB_PASSWORD);
 		include('views/cms/functions/users.php');
 		break;
 	

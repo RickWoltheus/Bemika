@@ -1,7 +1,43 @@
 
-<form class="" action="" method="post">
+<!doctype html>
+<!-- Ashvith Arumuganathan -->
+<html>
+<head>
+<title> CMS </title>
+<link href="https://fonts.googleapis.com/css?family=Palanquin+Dark" rel="stylesheet">
+<script src="https://use.fontawesome.com/e28b54a9f9.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/articles.css">
+
+</head>
+<body>
+  
+  <?php include('views/cms/parts/menu.php') ?>
+  
+  <!-- content -->
+  <div id="content">
+  
+  <!-- navbar activity log -->
+    <div class="log-nav">
+      <h2 class="bread"><?php
+      if (isset($_GET['genre'])){
+        $now = $_GET['genre'];
+      } else {
+        $now = "";
+      }
+       echo $_GET['page'] . " <i class='fa fa-arrow-right' aria-hidden='true'></i> " . $now; ?>
+     </h2>
+      <?php if (isset($_GET['genre'])) {
+        echo "<a href='?action=new_item&class=".$_GET['class']."&genre=".$_GET['genre']."'><button class='edit-button'>add article</button></a>";
+      } else {
+        echo "<a href='?action=new_item&class=".$_GET['class']."'><button class='edit-button'>add article</button></a>";
+      } ?>
+    </div>
+    <div class="log-nav">
   <table>
-  <tr>
+  <tr id="log-nav-item">
   <?php
   $keys = $item->getLimited(1);
   if (isset($_GET['genre'])) {
@@ -21,8 +57,7 @@
       echo "<td>".$key."</td> ";
     }
   }
-
-echo "</tr>";
+echo "</div></tr>";
 }
 
 echo "<tr>";
@@ -50,16 +85,16 @@ echo "<tr>";
 }
   echo "</tr>";
 }
-if (isset($_GET['genre'])) {
-echo "<a href='?action=new_item&class=".$_GET['class']."&genre=".$_GET['genre']."'>Add</a>";
-}else {
-  
-echo "<a href='?action=new_item&class=".$_GET['class']."'>Add</a>";
-}
+
+
 ?>
 </table>
- </form>
+
+
 </div>
+
+</body>
+</html>
 
 
 
