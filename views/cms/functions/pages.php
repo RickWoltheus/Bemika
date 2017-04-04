@@ -24,7 +24,7 @@
   <button id="cat-button" onclick="window.location.href='?action=items&page=pages&class=Page';">Edit Pages</button>
   </div>
   <div class="button">
-  <button id="edit-button" onclick="window.location.href='?action=items&page=new_cat&class=Category';">Add category</button>
+  <button id="cat-button" onclick="window.location.href='?action=items&page=new_cat&class=Category';">Add category</button>
   </div>
 </div>
 

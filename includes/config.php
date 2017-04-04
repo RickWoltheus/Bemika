@@ -13,4 +13,10 @@ define('DB_NAME','bemika');
 define('DB_USERNAME','root');
 define('DB_PASSWORD','');
 
+
+// define('DB_HOST','rickwoltheus.nl');
+// define('DB_NAME','rickwo1q_bemika');
+// define('DB_USERNAME','rickwo1q_admin');
+// define('DB_PASSWORD','123wormer');
+
 ?>

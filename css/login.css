@@ -1,0 +1,99 @@
+/* Bordered form */
+form {
+		max-width: 550px;
+		margin: 100px auto 0;
+		background: #fff;
+		border-radius: 5px;
+		background-color: #D9D9D9;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+		border-radius: 20px;
+    width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+		border-radius: 10px;
+    box-sizing: border-box;
+}
+
+/* Style for all buttons */
+button {
+		border-radius: 50px;
+		background-color: #66DCEC;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 70%;
+		font-size: 15px;
+}
+
+/* Hover effect for buttons */
+button:hover {
+    opacity: 0.8;
+}
+
+/* Add padding to containers */
+.containerlogin {
+    padding: 16px;
+}
+
+.form-login h2.form-login-heading {
+	font-family: sans-serif;
+	margin: 0;
+	padding: 15px 40px;
+	text-align: center;
+	background: #3D4456;
+	border-radius: 20px 20px 0 0;
+	color: #fff;
+	font-size: 20px;
+	text-transform: uppercase;
+	font-weight: 300;
+}
+.login-wrap {
+	padding: 10px;
+}
+.login-wrap .registration {
+	text-align: center;
+}
+
+.ending {
+	margin: 0;
+	padding: 25px 40px;
+	text-align: center;
+	background: #3D4456;
+	border-radius: 0 0 20px 20px ;
+}
+
+.lockedfont{
+	color: #66DCEC;
+	font-size: 15px;
+
+}
+
+a:link {
+    color: #66DCEC;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited {
+    color: #D9D9D9;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+    color: #66DCEC;
+    background-color: transparent;
+    text-decoration: underline;
+}
+a:active {
+    color: #66DCEC;
+    background-color: transparent;
+    text-decoration: underline;
+}

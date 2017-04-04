@@ -32,7 +32,7 @@
     </div> 
   
   </div>
-  <div class="editor"  id="editor" contenteditable>frederik</div>
+  <div class="editor"  id="editor" contenteditable><?php echo $value; ?></div>
   <input type="text" name="tags" placeholder="Tags">
   <div class="buttons">
     <!--<button type="button">save draft</button>-->

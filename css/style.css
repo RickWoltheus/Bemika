@@ -156,16 +156,16 @@ h2.name-admin {
 #navbar a {
 display: -webkit-flex;
 display: -ms-flexbox;
-display: flex; 
--webkit-align-items: center; 
-    -ms-flex-align: center; 
+display: flex;
+-webkit-align-items: center;
+    -ms-flex-align: center;
         align-items: center;
 padding: 10px;
 font-size: 20px;
 color: white;
 text-decoration: none;
 /*justify-content: center;*/
-} 
+}
 
 #navbar a .fa {
   font-size: 1.5em;
@@ -177,18 +177,18 @@ text-decoration: none;
 }
 
 #navbar a:hover {
-  background: #66dcec; 
+  background: #66dcec;
 }
 
 #navbar a.active {
-  background: #66dcec; 
+  background: #66dcec;
 }
 
 
 
 #sidebar_left {
   border-right: 5px solid #66dcec;
-  min-height: calc(100vh - 50px);
+  min-height: 100%;
 
 }
 
@@ -196,6 +196,4 @@ text-decoration: none;
 #content {
     width: auto;
     background: white;
-    height: ;
 }
-

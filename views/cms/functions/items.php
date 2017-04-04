@@ -20,20 +20,25 @@
   <div id="content">
   
   <!-- navbar activity log -->
+
     <div class="log-nav">
-      <h2 class="bread"><?php
-      if (isset($_GET['genre'])){
-        $now = $_GET['genre'];
-      } else {
-        $now = "";
-      }
-       echo $_GET['page'] . " <i class='fa fa-arrow-right' aria-hidden='true'></i> " . $now; ?>
-     </h2>
-      <?php if (isset($_GET['genre'])) {
-        echo "<a href='?action=new_item&class=".$_GET['class']."&genre=".$_GET['genre']."'><button class='edit-button'>add article</button></a>";
-      } else {
-        echo "<a href='?action=new_item&class=".$_GET['class']."'><button class='edit-button'>add article</button></a>";
-      } ?>
+      <div class="button">
+        <?php if (isset($_GET['genre'])) {
+          echo "<a href='?action=new_item&class=".$_GET['class']."&genre=".$_GET['genre']."'><button class='add-button'>add article</button></a>";
+        } else {
+          echo "<a href='?action=new_item&class=".$_GET['class']."'><button class='add-button'>add article</button></a>";
+        } ?>
+      </div>
+      
+        
+      <?php
+      // if (isset($_GET['genre'])){
+      //   $now = $_GET['genre'];
+      // } else {
+      //   $now = "";
+      // }
+      //  echo $_GET['page'] . " <i class='fa fa-arrow-right' aria-hidden='true'></i> " . $now; 
+       ?>
     </div>
     <div class="log-nav">
   <table>
@@ -52,9 +57,9 @@
   foreach ($keys as $oneItem) { 
     foreach ($oneItem as $key => $value) { 
       if ($key == "id") {
-      echo "<td></td><td></td>";
-      }else{
-      echo "<td>".$key."</td> ";
+      echo "<th></th>";
+    }elseif($key != "file" && $key != "text"){
+      echo "<th>".$key."</th> ";
     }
   }
 echo "</div></tr>";
@@ -65,9 +70,8 @@ echo "<tr>";
   if (isset($_GET['genre'])) {
     foreach ($oneItem as $key => $value) { 
       if ($key == "id") {
-        echo "<td> <a href='?action=delete&page=".$_GET['page']."&class=".$item->getClassName($item)."&id=".$value."&genre=".$_GET['genre']."'>delete</td> ";
-        echo "<td> <a href='?action=edit&page=".$_GET['page']."&class=".$item->getClassName($item)."&id=".$value."&genre=".$_GET['genre']."'>edit</td> ";
-      }else{
+        echo "<td> <a class='edit-button' href='?action=delete&page=".$_GET['page']."&class=".$item->getClassName($item)."&id=".$value."&genre=".$_GET['genre']."'><i class='fa fa-trash-o' aria-hidden='true'></i></i></a><a class='edit-button' href='?action=edit&page=".$_GET['page']."&class=".$item->getClassName($item)."&id=".$value."&genre=".$_GET['genre']."'><i class='fa  fa-pencil-square-o' aria-hidden='true'></a></td>";
+      }elseif($key != "file" && $key != "text"){
       echo "<td>".$value."</td>";
     }
     
@@ -77,7 +81,7 @@ echo "<tr>";
     if ($key == "id") {
       echo "<td> <a href='?action=delete&class=".$item->getClassName($item)."&id=".$value."'>delete</td> ";
       echo "<td> <a href='?action=edit&class=".$item->getClassName($item)."&id=".$value."'>edit</td> ";
-    }else{
+    }elseif($key != "file" && $key != "text"){
     echo "<td>".$value."</td>";
   }
   
@@ -92,7 +96,7 @@ echo "<tr>";
 
 
 </div>
-
+</div>
 </body>
 </html>
 

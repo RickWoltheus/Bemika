@@ -31,13 +31,19 @@
 $items = $item->getOne($_GET['id']);
   // display form from models
 
-  foreach ($items as $oneItem) {
-    foreach ($oneItem as $key => $value) {
+  foreach ($items as $oneItem) 
+  {
+    foreach ($oneItem as $key => $value) 
+    {
       
       if ($key == "text")
       {
         include('views/cms/parts/add_article.php');
         echo "<input type='hidden' name='text' id='resultEditor'>";
+      }
+      elseif ($key == "hidden")
+      {
+        echo "<select name='hidden'><option>true</option><option>false</option></select>";
       }
       elseif($key == "genre" || $key == "type") 
       {
@@ -59,13 +65,16 @@ $items = $item->getOne($_GET['id']);
       elseif ($key == "file") 
       {
       echo "<input type='file' name='file' id='file'><br>";
-      echo "de value is".$value;
       $media = $value;
     }
     elseif($key == "id")
     {
       echo "<input type='hidden' value='".$value."'>";
       
+    }
+    elseif($key == "date_created")
+    {
+      //do nothing
     }
     else
     {
@@ -76,14 +85,15 @@ $items = $item->getOne($_GET['id']);
 
 
 ?>
-<input type="submit" id="submit" name="submit" value="submit">
-<button data-func="save" type="button">save text</button>
 
+<button data-func="save" type="button">save text</button>
+<input type="submit" id="submit" name="submit" value="submit">
 </form>
 </div>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
-<script src="javascript/textarea.js" type="text/javascript"></script>
+<script type="text/javascript" src="javascript/textareaEdit.js"></script>
+
 </body>
 </html>
 <?php 

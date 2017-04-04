@@ -32,24 +32,38 @@ $keys = $item->getLimited(1);
 
 foreach ($keys as $oneItem) {
   foreach ($oneItem as $key => $value) {
-    if ($key == "text"){
+    if ($key == "text")
+    {
       include('views/cms/parts/add_article.php');
       echo "<input type='hidden' name='text' id='resultEditor'>";
-    }elseif($key == "genre") {
+    }
+    elseif($key == "genre") 
+    {
       echo "<input type='hidden' name='".$key."' value='".$_GET['genre']."'><br>";
-    }elseif ($key == "file") {
+    }
+    elseif ($key == "file")
+    {
     echo "<input type='file' name='file' id='file'><br><br>";
-  }elseif($key == "id" || $key == "date_created" || $key == "hidden"){
-    
-  }else{
+  }
+  elseif ($key == "hidden") 
+  {
+    echo "<input type='hidden' name='".$key."' value='true'";
+  }
+  elseif($key == "id" || $key == "date_created" )
+  {
+     // dispay none
+  }
+  else
+  {
       echo "<input type='text' name='".$key."' value='".$value."' placeholder='".$key."'><br>";
     }
   }
 }
 ?>
-<input type="submit" id="submit" name="submit" value="submit">
-<button data-func="save" type="button">save text</button>
 
+
+<center><input type="submit" id="submit" name="submit" value="submit"></center>
+<center><button id="save-draft" data-func="save" type="button">save text</button></center>
 </form>
 </div>
 
@@ -68,12 +82,13 @@ if (isset($_POST['submit'])){
 
   $data = $item->getPosts($keys, $media);
   
-
+  $item->redirect("?action=preview&id=".$id."");
 
   if($item->insertArray($data, "submit") == true){
     $activity->newActivity($_SESSION["user"], $_GET['class'], "text", "added new record");
-  
     echo "records saved";
+    $id = 97;
+  
   }else{
     echo "something went wrong";
   }
