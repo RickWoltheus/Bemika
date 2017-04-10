@@ -17,6 +17,7 @@
 
 <!-- content -->
 <div id="content">
+<h1>Welcome to Bemika cms</h1>
 
 </div>
 

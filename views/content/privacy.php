@@ -1,19 +1,37 @@
-
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>Privacy Policy</title>
+    <link rel="stylesheet" href="../../css/bemika/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../../css/bemika/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
 
 <body>
     <div id="container">
-        <div class="">
-            <div class="nav-bar">
-                <div class="logo"></div>
-                <ul>
-                    <li><a href="index.html">Bemika</a></li>
-                    <li>Software</li>
-                    <li>Music</li>
-                    <li>Sport</li>
+        <div class="nav-bar white">
+                    <div class="logo">
+                         <img src="../../img/bemika1.png" alt="logo">
+                    </div>
+                    <div class="flex-spacer"></div>
+                <ul class="hidden-xs">
+                  <li><a href="../../?action=default">Bemika</a></li>
+                  <li><a href="../../?action=movies">Movies</a></li>
+                  <li><a href="../../?action=software">Software</a></li>
+                  <li><a href="../../?action=music">Music</a></li>
+                  <li><a href="../../?action=sport">Sport</a></li>
                 </ul>
+                <a id="hambur" class="hidden-sm hidden-md hidden-lg">&#9776;</a>
+                <div class="hidden-sm hidden-md hidden-lg uthink">
+                    <a href="../../?action=default">Bemika</a>
+                    <a href="../../?action=movies">Movies</a>
+                    <a href="../../?action=software">Software</a>
+                    <a href="../../?action=music">Music</a>
+                    <a href="../../?action=sport">Sport</a>
+                </div>
             </div>
-        </div>
-        <div class="content">
+        <div class="content align">
             <h1>BEMIKAS' PRIVACY POLICY</h1>
 
 <p>Bemika takes your privacy matters very seriously. Please read the following to learn more about our Privacy Policy (“Policy”). This Policy details how we receive, collect and use information in connection with our website located at www.Bemikasolutions.com (the “Website”), and other products and services provided by Bemika (the “Services”).</p>
@@ -78,23 +96,31 @@
 <p>From time to time, Bemika may revise this Policy. We reserve the right to update or modify this Policy, or any other of our policies or practices. However, we will not use your Personal Data in a way that is materially different than the uses described in this Policy without giving you an opportunity to opt-out of such differing uses. We will send an email to all our active Users informing them on the update. Your continued use of the Website indicates your assent to any changes and signifies your agreement to the terms of our Policy. If you do not agree with these terms, you should not use the Website, or any other part of our Services.</p>
         </div>
 
+   <!--Begin Footer-->
+        <footer class="footer1">
+    <div class="footer">
+        <div class="container">
 
-       <footer class="footer">
-            <div class="copyright">&copy; 2015-2017 Bemika. All rights reserved.</div>
-            <div class="links">
+        </div> <!--/.container-->
+    </div> <!--/.footer-->
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="pull-left"> Copyright © <a>2015-2017 Bemika</a>.  All right reserved.</div>
+            <div class="pull-right">
                 <ul>
-                    <li><a href="privacy.html">Privacy policy</a></li>
-                    <li><a href="terms.html">Terms and conditions</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                  <li><a href="privacy.php">Privacy policy</a></li>
+                  <li><a href="terms.php">Terms and conditions</a></li>
+                  <li><a href="contact.php">Contact</a></li>
                     <li><a href="http://nl.linkedin.com/in/milosdespotovic">LinkedIn</a></li>
                 </ul>
             </div>
-
-        </footer>
+        </div>
     </div>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</footer>
+    </div>
+ <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      <script src="javascript/topscript.js" type="text/javascript"></script>
 </body>
 </html>
-
-
-

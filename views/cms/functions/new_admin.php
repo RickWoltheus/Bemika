@@ -10,20 +10,27 @@
  
  <!-- CSS -->
  <link rel="stylesheet" href="css/style.css">
+ <link rel="stylesheet" href="css/addarticles.css">
  
  </head>
  <body>
+   <div class="newPost">
 				<form method="post" class="form-signin">
 								 
-						<input type="text" class="form-control" name="uname" placeholder="Enter Username"/>
+						<input type="text" class="form-control" name="uname" placeholder="Enter Username"/><br>
 
-						<input type="text" class="form-control" name="umail" placeholder="Enter E-Mail ID"/>
+						<input type="text" class="form-control" name="umail" placeholder="Enter E-Mail ID"/><br>
 
-						<input type="password" class="form-control" name="pass" placeholder="Enter Password"/>
+						<input type="password" class="form-control" name="pass" placeholder="Enter Password"/><br>
+            
+						<select class="level" name="level">
+              <option value="sub-admin">sub-admin</option>
+						  <option value="super-admin">super-admin</option>
+						</select><br>
 
 						<input type="submit" name="submit" value="submit new user">
  
-
+</div>
 </body>
 </html>
 <?php
@@ -33,6 +40,7 @@ if(isset($_POST['submit']))
  $uname = strip_tags($_POST['uname']);
  $umail = strip_tags($_POST['umail']);
  $upass = strip_tags($_POST['pass']);	
+ $level = strip_tags($_POST['level']);	
  
  if($uname=="")	{
 	 $error[] = "provide username !";	
@@ -62,8 +70,8 @@ if(isset($_POST['submit']))
 		 // }
 		 // else
 		 // {
-			 if($user->register($uname,$umail,$upass)){	
-				 $user->redirect('?Page=home');
+			 if($user->register($uname,$umail,$upass,$level)){	
+				 $user->redirect('?action=accounts');
 		 }
 	 }
 	 catch(PDOException $e)

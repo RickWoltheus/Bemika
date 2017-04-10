@@ -1,3 +1,33 @@
+<?php $items = $item->getOne($_GET['id']);
+if (isset($_POST['submit'])){
+    if (!empty($_FILES['file']['name'])) {
+      $media = $item->uploadFile();
+    }else {
+
+      $media = $items['0']['file'];
+    }
+  $id = $_GET['id'];
+  $data = $item->getPosts($items, $media);
+
+  if($item->update($data, $id, "submit")){
+    echo "records saved";
+    if (isset($_GET['genre'])) {
+      $move = $_GET['genre'];
+    }else {
+      $move = $_GET['page'];
+    }
+    $activity->newActivity($_SESSION["user"], $_GET['class'], $_POST['title'], "updated record in ".$move."");
+    if (isset($_GET['genre'])) {
+      $item->redirect("?action=items&page=".$_GET['page']."&class=".$_GET['class']."&genre=".$_GET['genre']."");
+    }else {
+      $item->redirect("?action=items&page=".$_GET['page']."&class=".$_GET['class']);
+    }
+    
+  }else{
+    echo "something went wrong";
+  }
+}
+?>
 <!doctype html>
 <html>
 <head>
@@ -28,7 +58,6 @@
   <div class="newPost">
 <?php 
 
-$items = $item->getOne($_GET['id']);
   // display form from models
 
   foreach ($items as $oneItem) 
@@ -43,13 +72,13 @@ $items = $item->getOne($_GET['id']);
       }
       elseif ($key == "hidden")
       {
-        echo "<select name='hidden'><option>true</option><option>false</option></select>";
+        echo "hidden: <select name='hidden'><option>true</option><option>false</option></select>";
       }
-      elseif($key == "genre" || $key == "type") 
+      elseif($key == "genre") 
       {
         $list = $category->getSpecific("type", strtolower($_GET['page']));
         $current = $_GET['genre'];
-        echo "<select name='genre'>";
+        echo "genre: <select name='genre'>";
         echo "<option value='".$current."'>".$current."</option>";
         foreach ($list as $key => $value) 
         {
@@ -62,17 +91,33 @@ $items = $item->getOne($_GET['id']);
         echo "</select><br>";
         
       }
-      elseif ($key == "file") 
+      elseif ( $key == "type") 
       {
-      echo "<input type='file' name='file' id='file'><br>";
-      $media = $value;
-    }
+        $list = $page->getAll();
+        $current = $_GET['page'];
+        echo "<select name='type'>";
+        echo "<option value='".$current."'>".$current."</option>";
+        foreach ($list as $key => $value) 
+        {
+          if ($value['title'] != $current) 
+          {
+            echo "<option value='".$value['name']."'>".$value['name']."</option>";
+          }
+        }//end foreach
+        
+        echo "</select><br>";
+        
+      }
     elseif($key == "id")
     {
       echo "<input type='hidden' value='".$value."'>";
       
     }
-    elseif($key == "date_created")
+    elseif($key == "tags")
+    {
+      echo "tags:<input type='text' name='tags' value='".$value."'>";
+    }
+    elseif($key == "date_created" || $key == "file")
     {
       //do nothing
     }
@@ -83,11 +128,15 @@ $items = $item->getOne($_GET['id']);
     }
   }
 
-
+if (isset($_POST['genre'])) {
+echo "<button data-func='save' type='button'>save text</button>";
+}
 ?>
 
-<button data-func="save" type="button">save text</button>
+
+
 <input type="submit" id="submit" name="submit" value="submit">
+</div>
 </form>
 </div>
 
@@ -96,21 +145,4 @@ $items = $item->getOne($_GET['id']);
 
 </body>
 </html>
-<?php 
-if (isset($_POST['submit'])){
-    if (!empty($_FILES['file']['name'])) {
-      $media = $item->uploadFile();
-    }
-  $id = $_GET['id'];
-  
-  $data = $item->getPosts($items, $media);
 
-  if($item->update($data, $id, "submit")){
-    echo "records saved";
-    $activity->newActivity($_SESSION["user"], $_GET['class'], "text", "updated record in ".$_GET['genre']."");
-    // $item->redirect("?action=items&page=".$_GET['page']."&class=".$_GET['class']."&genre=".$_GET['genre']."");
-  }else{
-    echo "something went wrong";
-  }
-}
-?>

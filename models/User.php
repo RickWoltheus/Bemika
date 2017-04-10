@@ -32,13 +32,15 @@ public function dologin($uname,$pass)
 {
 		try
 		{
-			$result = $this->_db->prepare("SELECT id, name, email, pass FROM users WHERE name=:uname OR email=:umail ");
+			$result = $this->_db->prepare("SELECT id, name, email, pass, level FROM users WHERE name=:uname OR email=:umail ");
 			$result->execute(array(':uname'=>$uname, ':umail'=>$uname));
 			$userRow=$result->fetch(PDO::FETCH_ASSOC);
 			{
 				if(password_verify($pass, $userRow['pass']))
 				{
 					$_SESSION['user'] = $userRow['name'];
+					
+					$_SESSION['level'] = $userRow['level'];
 					return true;
 				}
 				else
@@ -52,18 +54,35 @@ public function dologin($uname,$pass)
 			echo $e->getMessage();
 		}
 	}
-public function register($uname, $umail, $pass){
+public function register($uname, $umail, $pass, $level){
 	try
 	{
 		
 		$hash_pass = password_hash($pass, PASSWORD_DEFAULT);
 		
-		$result = $this->_db->prepare("INSERT INTO users(name,email,pass) 
-																								 VALUES(:uname, :umail, :upass)");
+		$result = $this->_db->prepare("INSERT INTO users(name,email,pass,level) 
+																								 VALUES(:uname, :umail, :upass, :level)");
 												
 		$result->bindparam(":uname", $uname);
 		$result->bindparam(":umail", $umail);
 		$result->bindparam(":upass", $hash_pass);										  
+		$result->bindparam(":level", $level);										  
+			
+		$result->execute();	
+		
+		return $result;	
+	}
+	catch(PDOException $e)
+	{
+		echo $e->getMessage();
+	}		
+}
+
+public function deleteUser($id){
+	try
+	{
+		
+		$result = $this->_db->prepare("DELETE FROM users WHERE id=$id");							  
 			
 		$result->execute();	
 		

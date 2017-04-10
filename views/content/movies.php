@@ -1,72 +1,118 @@
+<?php
+
+if (!isset($_SESSION['viewMovies'])) {
+  $pageview->pageView("movies");
+  $_SESSION['viewMovies'] = 0;
+}else {
+
+}
+
+
+
+ ?>
 
 <body>
-    <div id="container">
+    <!-- Start Container -->
+     <div id="container">
         <div class="slider">
+          <!-- Start Nav-Bar -->
             <div class="nav-bar">
-                <div class="logo"></div>
-                <ul>
-                    <li><a href="index.html">Bemika</a></li>
-                    <li><a href="software.html">Software</a></li>
-                    <li><a href="music.html">Music</a></li>
-                    <li><a href="sport.html">Sport</a></li>
-                </ul>
+                <div class="logo">
+                   <a href="movies.html"><img src="img/bemikaFilm-hor.png" alt="logo"></a>
+                </div>
+                 <div class="flex-spacer"></div>
+                  <ul class="hidden-xs">
+                    <li><a href="?action=default">Bemika</a></li>
+                    <li><a href="?action=movies">Movies</a></li>
+                    <li><a href="?action=software">Software</a></li>
+                    <li><a href="?action=music">Music</a></li>
+                    <li><a href="?action=sport">Sport</a></li>
+                  </ul>
+
+           <!-- Start Nav-Bar Collapse -->
+               <a id="hambur" class="hidden-sm hidden-md hidden-lg">&#9776;</a>
+                <div class="hidden-sm hidden-md hidden-lg uthink">
+                  <a href="?action=default">Bemika</a>
+                  <a href="?action=movies">Movies</a>
+                  <a href="?action=software">Software</a>
+                  <a href="?action=music">Music</a>
+                  <a href="?action=sport">Sport</a>
+                </div>
+              <!-- End Nav-Bar Collapse -->
             </div>
+             <!-- End Nav-Bar -->
         </div>
-        <div class="content">
-            <h1>Bemika Movies</h1>
+    <!-- Start Photo under Nav-Bar -->
+     <div class="content">
+        <h1>Bemika Movies</h1>
             <p>Fresh, new ideas... experimental projects... social conscience and activism... beauty of life... pushing the limits... eye opening, mind blowing, spiritually uplifting...</p>
-        </div>
-        <div class="sections">
-            <div class="section1">
-                  <h3>Bemika Software</h3>
-                   <div class="section-image"></div>
-                   <div class="section-tekst">
-                       <a href="software.html"><button>Klik hier!</button></a>
-                   </div>
-            </div>
+     </div>
+    <!--Start Category-->
+       <section id="categorie">
+         <?php
+         foreach ($category->getCategory("movies", "3") as $key => $value) {
+           echo '<div class="row" id="catrow">';
+              echo '<div class="col-lg-12 text-center">';
+                  echo "<h2>" . $value['title'] . "</h2>";
+                  echo '<hr class="star-primary">';
+                  $id = $value['title'];
+                  echo '<div class="row">';
+                    foreach ($article->getCategoryA($id,"4") as $key => $value) {
+                        echo '<div class="col-sm-3 portfolio-item">';
+                            echo '<a href="?action=articleView&art='. $value['id'] .'" class="portfolio-link">';
+                            echo '<div class="caption orange">';
+                            echo '</div>';
+                            echo '<img src="img/upload/' . $value['file'] . '" class="img-responsive" alt=""> </a>';
+                            echo "<h3>" . $value['title'] . "</h3>";
+                            $date = new DateTime($value['date_created']);
+                            echo "<h4>" . date_format($date , "d-m-Y") . "</h4>";
+                        echo '</div>';
+                    }
+                  echo '</div>';
+                  echo '<hr class="star-primary">';
+                  echo '<div class="page-navigation">';
+                  echo '<button><a href="?action=category&cat='. $id .'">See More </a></button>';
+                  echo '</div>';
+              echo '</div>';
+           echo '</div>';
 
-            <div class="section2">
-                    <h3>Bemika Music</h3>
-                    <div class="section-image1"></div>
-                   <div class="section-tekst1">
-                       <a href="music.html"><button>Klik hier!</button></a>
-                   </div>
-            </div>
 
-            <div class="section3">
-                   <h3>Bemika Sport</h3>
-                    <div class="section-image2"></div>
-                   <div class="section-tekst2">
-                       <a href="sport.html"><button>Klik hier!</button></a>
-                   </div>
-            </div>
-        </div>
+         }
 
-       <footer class="footer">
-            <div class="copyright">&copy; 2015-2017 Bemika. All rights reserved.</div>
-            <div class="links">
+
+
+
+              ?>
+        </section>
+    <!--Eind Category-->
+
+
+        <!--Begin Footer-->
+        <footer class="footer1">
+    <div class="footer">
+        <div class="container">
+
+        </div> <!--/.container-->
+    </div> <!--/.footer-->
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="pull-left"> Copyright © <a>2015-2017 Bemika</a>.  All right reserved.</div>
+            <div class="pull-right">
                 <ul>
-                    <li><a href="privacy.html">Privacy policy</a></li>
-                    <li><a href="terms.html">Terms and conditions</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="http://nl.linkedin.com/in/milosdespotovic">LinkedIn</a></li>
+                  <li><a href="views/content/privacy.php">Privacy policy</a></li>
+                  <li><a href="views/content/terms.php">Terms and conditions</a></li>
+                  <li><a href="views/content/contact.php">Contact</a></li>
+                  <li><a href="http://nl.linkedin.com/in/milosdespotovic">LinkedIn</a></li>
                 </ul>
             </div>
-
-        </footer>
+        </div>
     </div>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</footer>
+<!--Eind Footer-->
+     </div>
+    <!-- End Container -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      <script src="javascript/topscript.js" type="text/javascript"></script>
 </body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
- 

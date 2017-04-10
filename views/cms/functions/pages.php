@@ -20,11 +20,9 @@
 <div id="content">
 <!-- navbar pages -->
 <div class="log-nav">
+  <label>Pages</label>
   <div class="button">
-  <button id="cat-button" onclick="window.location.href='?action=items&page=pages&class=Page';">Edit Pages</button>
-  </div>
-  <div class="button">
-  <button id="cat-button" onclick="window.location.href='?action=items&page=new_cat&class=Category';">Add category</button>
+  <button id="cat-button" onclick="window.location.href='?action=items&page=&class=Category';">Add category</button>
   </div>
 </div>
 

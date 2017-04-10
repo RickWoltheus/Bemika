@@ -28,17 +28,16 @@
     <button class="witdhnul"></button>
     <div class="henk">  
       <span> <i class="fa fa-upload" aria-hidden="true"></i></span>
-      <input type="file" class="uploadbtn"/> 
+      <input class="uploadbtn" type='file' name='file' id='file'><br><br>;
     </div> 
   
   </div>
   <div class="editor"  id="editor" contenteditable><?php echo $value; ?></div>
-  <input type="text" name="tags" placeholder="Tags">
   <div class="buttons">
     <!--<button type="button">save draft</button>-->
     
   </div>
-</div>
+
 
 
 

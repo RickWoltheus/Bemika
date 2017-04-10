@@ -11,9 +11,7 @@
 <div class="dropdown">
   <a class="dropbtn"><i class="fa fa-user-circle-o" aria-hidden="true"></i><?php echo $_SESSION['user'] ?></a>
   <div class="dropdown-content">
-    <a href="#">Lock screen</a>
-    <a href="#">Log out</a>
-    <a href="#">Settings</a>
+    <a href="?action=logout">Log out</a>
   </div>
 </div>
 </div>
@@ -35,8 +33,12 @@
     <a href="?action=dashboard"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a>
     <a href="?action=activity&page=activitys"><i class="fa fa-clone" aria-hidden="true"></i>Activity log</a>
     <a href="?action=pages"><i class="fa fa-file-o" aria-hidden="true"></i>Pages</a>
-    <a href="?action=charts"><i class="fa fa-bar-chart" aria-hidden="true"></i>Charts</a>
-    <a href="?action=accounts"><i class="fa fa-users" aria-hidden="true"></i>Accounts</a>
+    <a href="?action=stats"><i class="fa fa-bar-chart" aria-hidden="true"></i>Stats</a>
+    
+    <?php if ($_SESSION['level'] == "super-admin"): ?>
+      <a href="?action=accounts&page=users"><i class="fa fa-users" aria-hidden="true"></i>Accounts</a>
+    <?php endif; ?>
+    
   
 </div>
 

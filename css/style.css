@@ -197,3 +197,11 @@ text-decoration: none;
     width: auto;
     background: white;
 }
+.viewscount{
+
+  float:right;
+}
+.viewrow{
+  border-top:1px solid black;
+  padding-bottom:5px
+}

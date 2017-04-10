@@ -1,29 +1,37 @@
-
 <!DOCTYPE HTML>
 <html lang="">
 <head>
     <meta charset="UTF-8">
-    <title>Welkom bij Bemika movies</title>
-  <link rel="stylesheet" type="text/css" href="css/movie.css">
-  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script src="js/topscript.js" type="text/javascript"></script>
+    <title>Terms and conditions</title>
+    <link rel="stylesheet" href="../../css/bemika/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../../css/bemika/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 
 <body>
     <div id="container">
-        <div class="">
-            <div class="nav-bar">
-                <div class="logo"></div>
-                <ul>
-                    <li><a href="index.html">Bemika</a></li>
-                    <li>Software</li>
-                    <li>Music</li>
-                    <li>Sport</li>
+        <div class="nav-bar white">
+                    <div class="logo">
+                         <img src="../../img/bemika1.png" alt="logo">
+                    </div>
+                    <div class="flex-spacer"></div>
+                <ul class="hidden-xs">
+                  <li><a href="../../?action=default">Bemika</a></li>
+                  <li><a href="../../?action=movies">Movies</a></li>
+                  <li><a href="../../?action=software">Software</a></li>
+                  <li><a href="../../?action=music">Music</a></li>
+                  <li><a href="../../?action=sport">Sport</a></li>
                 </ul>
+                <a id="hambur" class="hidden-sm hidden-md hidden-lg">&#9776;</a>
+                <div class="hidden-sm hidden-md hidden-lg uthink">
+                    <a href="../../?action=default">Bemika</a>
+                    <a href="../../?action=movies">Movies</a>
+                    <a href="../../?action=software">Software</a>
+                    <a href="../../?action=music">Music</a>
+                    <a href="../../?action=sport">Sport</a>
+                </div>
             </div>
-        </div>
-        <div class="content">
+        <div class="content align">
             <h1>Bemika’s Terms and Conditions
 </h1>
             <p>These page comprise the terms and conditions set forth below and any additional terms and conditions provided on this website including but not limited to Bemikas’ Privacy Policy (together the “Terms and Conditions”) and govern the use of the service provided to you by Bemika, or otherwise the relationship between you and Bemika in connection with the service.</p>
@@ -92,20 +100,32 @@
 <p>Bemika may revise these Terms and Conditions for its Website at any time. We reserve the right to update or modify the Terms and Condition, or any other of our policies or practices. In such case, your continued use of the Website indicates your assent to any changes and signifies your agreement to the Terms and Conditions. If you do not agree with these terms, you should not use the Website or any other part of the Services.</p>
         </div>
 
+   <!--Begin Footer-->
+        <footer class="footer1">
+    <div class="footer">
+        <div class="container">
 
-       <footer class="footer">
-            <div class="copyright">&copy; 2015-2017 Bemika. All rights reserved.</div>
-            <div class="links">
+        </div> <!--/.container-->
+    </div> <!--/.footer-->
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="pull-left"> Copyright © <a>2015-2017 Bemika</a>.  All right reserved.</div>
+            <div class="pull-right">
                 <ul>
-                    <li><a href="privacy.html">Privacy policy</a></li>
-                    <li><a href="terms.html">Terms and conditions</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.php">Privacy policy</a></li>
+                    <li><a href="terms.php">Terms and conditions</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                     <li><a href="http://nl.linkedin.com/in/milosdespotovic">LinkedIn</a></li>
                 </ul>
             </div>
-
-        </footer>
+        </div>
     </div>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</footer>
+
+    </div>
+ <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="js/topscript.js" type="text/javascript"></script>
 </body>
 </html>

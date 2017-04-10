@@ -20,12 +20,20 @@
   <div id="content">
   
   <!-- navbar activity log -->
-    <div class="log-nav">
-      <h2 class="bread">Activities</h2>
+  <div class="log-nav">
+    <label>Activity</label>
+
     </div>
+  </div>
     
       <div class="wrapper">
-          <ul id="results"><!-- results appear here --></ul>
+          <table id="results"> <tr>
+   <th>Date</th>
+   <th>Author</th>
+   <th>Place</th>
+   <th>Title</th>
+   <th>Action</th>
+ </tr><!-- results appear here --></table>
           <div align="center">
               <button id="load_more_button"><img src="img/ajax-loader.gif"  class="animation_image" style="float:left;">Load More</button> <!-- load button -->
           </div>

@@ -73,7 +73,7 @@ class Model {
                if ($key != "id" && $key != "date_created" && $key != "file") {
                  $data[$key]=$_POST[$key];
                }elseif ($key == "file") {
-                 echo $media;
+                 
                   $data[$key]= $media;
                }
             }
@@ -101,11 +101,11 @@ class Model {
             $fields = implode(",", $fields);
             $values = implode(",", $values);
             
-            var_dump($values);
+    
             $result = $this->_db->query('INSERT INTO `'.$this->_table.'`('.$fields.') 
                               VALUES ('.$values.')')or die (mysqli_error($this->_db));
-                              
-            return $result;
+             $last_id = $this->_db->insert_id;
+            return $last_id;
             
   }
   public function uploadFile(){
@@ -124,25 +124,25 @@ class Model {
       {
       if ($_FILES["file"]["error"] > 0)
         {
-        echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
+      
         }
       else
         {
-        echo "Upload: " . $_FILES["file"]["name"] . "<br />";
-        echo "Type: " . $_FILES["file"]["type"] . "<br />";
-        echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
-        echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br />";
-    
+        // echo "Upload: " . $_FILES["file"]["name"] . "<br />";
+        // echo "Type: " . $_FILES["file"]["type"] . "<br />";
+        // echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
+        // echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br />";
+        // 
         if (file_exists("img/upload/" . $_FILES["file"]["name"]))
           {
-          echo $_FILES["file"]["name"] . " already exists. ";
+          // echo $_FILES["file"]["name"] . " already exists. ";
           return  $_FILES["file"]["name"];
           }
         else
           {
           move_uploaded_file($_FILES["file"]["tmp_name"],
           "img/upload/" . $_FILES["file"]["name"]);
-          echo "Stored in: " . "img/upload/" . $_FILES["file"]["name"];
+          // echo "Stored in: " . "img/upload/" . $_FILES["file"]["name"];
           
           return  $_FILES["file"]["name"];
           }
@@ -150,7 +150,7 @@ class Model {
       }
     else
       {
-      echo "Invalid file";
+      // echo "Invalid file";
       }
   }
   //update an item with array
@@ -206,14 +206,11 @@ class Model {
   	$position = (($page_number-1) * $item_per_page);
 
   	//fetch records using page position and item per page. 
-  	$results = $this->_db->query("SELECT * FROM $this->_table DESC LIMIT $item_per_page");
-    echo ("SELECT * FROM $this->_table DESC LIMIT $item_per_page");
+  	$results = $this->_db->query("SELECT * FROM $this->_table ORDER BY id DESC LIMIT $position, $item_per_page");
     $List = array();
-    var_dump($results);
     while ($data = $results->fetch_assoc()) {
       $List[]= $data;
     }
-    var_dump($results);
     return $List;
 
   }

@@ -1,3 +1,15 @@
+<?php
+if (isset($_POST['submit'])) {
+	if($login->dologin($_POST['uname'],$_POST['pass'])) {
+		if( isset($_SESSION["user"]) ){
+	    $login->redirect('?action=dashboard');
+  }
+	
+	}else{
+		echo "failed to log in";
+	}
+}
+?>
 <!doctype html>
 <!-- Jennifer Hoogeland -->
 <html>
@@ -28,15 +40,3 @@
 </body>
 </html>
 
-<?php
-if (isset($_POST['submit'])) {
-	if($login->dologin($_POST['uname'],$_POST['pass'])) {
-		if( isset($_SESSION["user"]) ){
-	    $login->redirect('?action=dashboard');
-  }
-	
-	}else{
-		echo "failed to log in";
-	}
-}
-?>

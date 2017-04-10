@@ -1,0 +1,668 @@
+@charset "utf-8";
+body {
+    font-family: "futura";
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#main-wrapper {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.intro-tekst {
+    width: 80%;
+    margin: 0 auto;
+    opacity: 0;
+    color: black;
+    text-align: center;
+}
+
+.bemika-tekst {
+    display: none;
+}
+
+.verken-bemika {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 3px solid #a7c80f;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 1em;
+    position: fixed;
+    transform: translateX(50%);
+    bottom: 50%;
+    margin-top: 5em;
+    z-index: 8;
+}
+
+.bemika-button {
+    display: none;
+}
+
+.verken-animate {
+    height: 50px;
+    text-align: center;
+    border-radius: 5%;
+    border: 3px solid #a7c80f;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 1em;
+    position: absolute;
+    margin-top: 1em;
+    transition: 1500ms;
+    bottom: 3em;
+    z-index: -10;
+    opacity: 0;
+}
+
+.bemikaSoft {
+    opacity: 0;
+    width: auto;
+    height: 241px;
+    background-image: url(../images/intro-logo.png);
+    background-size: cover;
+    background-position: center center;
+    z-index: -2;
+    margin-top: 2em;
+    margin-bottom: .5em;
+}
+
+.bemikaSoft-vis {
+    opacity: 1;
+    width: auto;
+    height: 241px;
+    transition: 500ms;
+    transition-delay: 500ms;
+    z-index: -11;
+}
+
+.bemikaSoft-visable {
+    width: 80%;
+    transition: 500ms;
+    opacity: 1;
+    transition-delay: 1s;
+    z-index: -1;
+}
+
+#stroke-wrap {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.stroke1 {
+    width: 100%;
+    height: 25vh;
+    background-image: url(../images/bemika-movies.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    display: inline;
+    float: left;
+    left: -600px;
+    z-index: -1;
+}
+
+.stroke1-active {
+    left: 0;
+    transition: 1s;
+    transition-delay: 5000ms;
+}
+
+.stroke2 {
+    width: 100%;
+    height: 25vh;
+    background-image: url(../images/bemika-music.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    display: inline;
+    float: left;
+    right: -600px;
+    z-index: -1;
+}
+
+.stroke2-active {
+    right: 0;
+    transition: 1s;
+    transition-delay: 5400ms;
+}
+
+.stroke3 {
+    width: 100%;
+    height: 25vh;
+    background-image: url(../images/bemika-movies.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    display: inline;
+    float: left;
+    left: -600px;
+    z-index: -1;
+}
+
+.stroke3-active {
+    left: 0;
+    transition: 1s;
+    transition-delay: 5800ms;
+}
+
+.stroke4 {
+    width: 100%;
+    height: 25vh;
+    background-image: url(../images/bemika-telecom.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    display: inline;
+    float: left;
+    right: -600px;
+    z-index: -1;
+}
+
+.stroke4-active {
+    right: 0;
+    transition: 1s;
+    transition-delay: 6200ms;
+}
+
+.stroke1-content,
+.stroke2-content,
+.stroke3-content,
+.stroke4-content {
+    width: 100%;
+    height: 25vh;
+}
+
+
+
+/*        Media query voor tablet       */
+
+@media (min-width:600px) {
+    .bemikaLogo {
+        background-color: white;
+        width: 350px;
+        height: 281px;
+        background-image: url(../images/intro-logo.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-bottom: 1em;
+        background-position: center center;
+        z-index: 100;
+        margin: 0 auto;
+        transition: 1s;
+    }
+    .displace-logo {
+        animation-name: logo;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        animation-delay: 1s;
+        border-radius: 10px;
+        position: relative;
+        z-index: 100;
+        -webkit-box-shadow: 0px 0px 24px 2px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 0px 24px 2px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 24px 2px rgba(0, 0, 0, 0.75);
+        transition: 1s;
+    }
+    .bemika-tekst {
+        color: orange;
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+        color: black;
+        text-align: center;
+    }
+    .tekst-remove {
+        color: grey;
+        animation-name: tekst;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        animation-delay: 500ms;
+    }
+    .bemika-button {
+        color: grey;
+        display: block;
+        height: 50px;
+        text-align: center;
+        border-radius: 5%;
+        border: 3px solid lightgrey;
+        background-color: rgba(255, 255, 255, 0);
+        padding: 1em;
+        position: absolute;
+        margin-top: 5em;
+        transition: 1500ms;
+        bottom: 10em;
+        right: 0;
+        transform: translateX(-45vw);
+        z-index: 10;
+    }
+    .remove-button {
+        animation-name: button;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+    #stroke-wrap {
+        z-index: 5;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        overflow: hidden;
+    }
+    .tak1-content {
+        width: 100%;
+        height: 50vh;
+    }
+    
+    .tak1-inhoud {
+        width: 100%;
+        height: 50vh;
+        opacity: 0;
+        transition: 500ms;
+    }
+    
+    .tak1-inhoud:hover {
+        width: 100%;
+        height: 50vh;
+        opacity: 1;
+        transition: 500ms;
+        transition-delay: 500ms;
+    }
+    
+    .tak2-content {
+        width: 100%;
+        height: 50vh;
+    }
+    .tak1 {
+        transform: translate(20%, 20%);
+        opacity: 0;
+        background-image: url(../images/bem-movies.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 50%;
+        float: left;
+        z-index: 1;
+    }
+    
+    .tak1-animatie {
+        animation-name: tak1-an;
+        animation-duration: 800ms;
+        animation-fill-mode: forwards;
+        animation-delay: 1900ms;
+    }
+    
+    .tak1-inhoud p {
+        width: 80%;
+        text-align: center;
+        margin: 0 auto;
+        transform: translate(0%, 58%);
+    }
+    .tak2 {
+        opacity: 1;
+        background-image: url(../images/bem-software.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 50%;
+        float: left;
+        z-index: 1;
+        opacity: 0;
+    }
+    
+    .tak2-animatie {
+        animation-name: tak2-an;
+        animation-duration: 800ms;
+        animation-fill-mode: forwards;
+        animation-delay: 2800ms;
+    }
+    
+    .tak2-inhoud {
+        width: 100%;
+        height: 50vh;
+        opacity: 0;
+        transition: 500ms;
+    }
+    
+    .tak2-inhoud:hover {
+        width: 100%;
+        height: 50vh;
+        opacity: 1;
+        transition: 500ms;
+        transition-delay: 500ms;
+    }
+    
+    .tak2-inhoud p {
+        width: 80%;
+        text-align: center;
+        margin: 0 auto;
+        transform: translate(0%, 50%);
+    }
+    
+    .tak3 {
+        opacity: 0;
+        background-image: url(../images/bem-music.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 50%;
+        float: left;
+        z-index: 1;
+    }
+    .tak3-animatie {
+        animation-name: tak3-an;
+        animation-duration: 800ms;
+        animation-fill-mode: forwards;
+        animation-delay: 3700ms;
+    }
+    
+    .tak3-inhoud {
+        width: 100%;
+        height: 50vh;
+        opacity: 0;
+        transition: 500ms;
+    }
+    
+    .tak3-inhoud:hover {
+        width: 100%;
+        height: 50vh;
+        opacity: 1;
+        transition: 500ms;
+        transition-delay: 500ms;
+    }
+    
+    .tak3-inhoud p {
+        width: 80%;
+        text-align: center;
+        margin: 0 auto;
+        transform: translate(0%, 120%);
+    }
+    
+    .tak4 {
+        opacity: 0;
+        background-image: url(../images/bem-telecom.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 50%;
+        float: left;
+        z-index: 1;
+    }
+    .tak4-animatie {
+        animation-name: tak4-an;
+        animation-duration: 800ms;
+        animation-fill-mode: forwards;
+        animation-delay: 4900ms;
+    }
+    
+    .tak4-inhoud {
+        width: 100%;
+        height: 50vh;
+        opacity: 0;
+        transition: 500ms;
+    }
+    
+    .tak4-inhoud:hover {
+        width: 100%;
+        height: 50vh;
+        opacity: 1;
+        transition: 500ms;
+        transition-delay: 500ms;
+    }
+    
+    .tak4-inhoud p {
+        width: 80%;
+        text-align: center;
+        margin: 0 auto;
+        transform: translate(0%, 110%);
+    }
+    
+    @keyframes button {
+        0% {
+            opacity: 1;
+        }
+        25% {
+            opacity: .8;
+        }
+        50% {
+            opacity: .5;
+        }
+        75% {
+            opacity: .1;
+        }
+        100% {
+            opacity: 0;
+            bottom: 2em;
+        }
+    }
+    @keyframes tekst {
+        0% {
+            opacity: 1;
+        }
+        25% {
+            opacity: .8;
+        }
+        50% {
+            opacity: .5;
+        }
+        75% {
+            opacity: .1;
+        }
+        100% {
+            opacity: 0;
+            margin-top: 5em;
+        }
+    }
+    @keyframes tak {
+        0% {
+            opacity: 1;
+        }
+        25% {
+            opacity: .8;
+        }
+        50% {
+            opacity: .5;
+        }
+        75% {
+            opacity: .1;
+        }
+        100% {
+            opacity: 0;
+            margin-top: 5em;
+        }
+    }
+    @keyframes logo {
+        0% {}
+        25% {}
+        50% {}
+        75% {}
+        100% {
+            margin-top: 40vh;
+            height: 140.5px;
+            width: 150px;
+            background-image: url(../images/logoBem.gif);
+            z-index: 101;
+        }
+    }
+    .intro-tekst {
+        display: none;
+    }
+    .verken-bemika {
+        display: none;
+    }
+    .verken-animate {
+        display: none;
+    }
+    .bemikaSoft {
+        display: none;
+    }
+    .bemikaSoft-vis {
+        display: none;
+    }
+    .bemikaSoft-visable {
+        display: none;
+    }
+    .stroke1 {
+        display: none;
+    }
+    .stroke1-active {
+        display: none;
+    }
+    .stroke2 {
+        display: none;
+    }
+    .stroke2-active {
+        display: none;
+    }
+    .stroke3 {
+        display: none;
+    }
+    .stroke3-active {
+        display: none;
+    }
+    .stroke4 {
+        display: none;
+    }
+    .stroke4-active {
+        display: none;
+    }
+    .stroke1-content,
+    .stroke2-content,
+    .stroke3-content,
+    .stroke4-content {
+        display: none;
+    }
+    @keyframes tak1-an {
+        0% {
+            transform: translate(20%, 20%);
+            opacity: 0;
+        }
+        25% {
+            transform: translate(15%, 15%);
+        }
+        50% {
+            transform: translate(10%, 10%);
+        }
+        75% {
+            transform: translate(5%, 5%);
+        }
+        100% {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+    }
+    @keyframes tak2-an {
+        0% {
+            transform: translate(-20%, 20%);
+            opacity: 0;
+        }
+        25% {
+            transform: translate(-15%, 15%);
+        }
+        50% {
+            transform: translate(-10%, 10%);
+        }
+        75% {
+            transform: translate(-5%, 5%);
+        }
+        100% {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+    }
+    @keyframes tak3-an {
+        0% {
+            transform: translate(20%, -20%);
+            opacity: 0;
+        }
+        25% {
+            transform: translate(15%, -15%);
+        }
+        50% {
+            transform: translate(10%, -10%);
+        }
+        75% {
+            transform: translate(5%, -5%);
+        }
+        100% {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+    }
+    @keyframes tak4-an {
+        0% {
+            transform: translate(-20%, -20%);
+            opacity: 0;
+        }
+        25% {
+            transform: translate(-15%, -15%);
+        }
+        50% {
+            transform: translate(-10%, -10%);
+        }
+        75% {
+            transform: translate(-5%, -5%);
+        }
+        100% {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+    }
+    
+    button.button-verken-music {
+        background-color: rgba(255,255,255,0);
+        width: 110px;
+        height: 40px;
+        position: relative;
+        right: -50%;
+        transform: translate(-50%, 520%);
+        border: 3px solid white;
+        color: white;
+    }
+    
+    button.button-verken-movies{
+        background-color: rgba(255,255,255,0);
+        width: 110px;
+        height: 40px;
+        position: relative;
+        right: -50%;
+        transform: translate(-50%, 520%);
+        border: 3px solid white;
+        color: white;
+    }
+    
+    button.button-verken-software{
+        background-color: rgba(255,255,255,0);
+        width: 110px;
+        height: 40px;
+        position: relative;
+        right: -50%;
+        transform: translate(-50%, 440%);
+        border: 3px solid white;
+        color: white;
+    }
+    
+    button.button-verken-telecom{
+        background-color: rgba(255,255,255,0);
+        width: 110px;
+        height: 40px;
+        position: relative;
+        right: -50%;
+        transform: translate(-50%, 480%);
+        border: 3px solid white;
+        color: white;
+    }
+    
+}

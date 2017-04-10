@@ -24,21 +24,21 @@
     <div class="log-nav">
       <div class="button">
         <?php if (isset($_GET['genre'])) {
-          echo "<a href='?action=new_item&class=".$_GET['class']."&genre=".$_GET['genre']."'><button class='add-button'>add article</button></a>";
+          echo "<a href='?action=new_item&page=".$_GET['page']."&class=".$_GET['class']."&genre=".$_GET['genre']."'><button class='add-button'>add article</button></a>";
         } else {
-          echo "<a href='?action=new_item&class=".$_GET['class']."'><button class='add-button'>add article</button></a>";
+          echo "<a href='?action=new_item&page=".$_GET['page']."&class=".$_GET['class']."'><button class='add-button'>add</button></a>";
         } ?>
       </div>
-      
+      <label>Pages<i class='fa fa-arrow-right' aria-hidden='true'></i>      <?php
+            if (isset($_GET['genre'])){
+              $now = $_GET['genre'];
+            } else {
+              $now = "";
+            }
+             echo $_GET['page'] . " <i class='fa fa-arrow-right' aria-hidden='true'></i> " . $now; 
+             ?></label>
         
-      <?php
-      // if (isset($_GET['genre'])){
-      //   $now = $_GET['genre'];
-      // } else {
-      //   $now = "";
-      // }
-      //  echo $_GET['page'] . " <i class='fa fa-arrow-right' aria-hidden='true'></i> " . $now; 
-       ?>
+
     </div>
     <div class="log-nav">
   <table>
@@ -79,8 +79,7 @@ echo "<tr>";
 }else{
   foreach ($oneItem as $key => $value) { 
     if ($key == "id") {
-      echo "<td> <a href='?action=delete&class=".$item->getClassName($item)."&id=".$value."'>delete</td> ";
-      echo "<td> <a href='?action=edit&class=".$item->getClassName($item)."&id=".$value."'>edit</td> ";
+        echo "<td> <a class='edit-button' href='?action=delete&page=".$_GET['page']."&class=".$item->getClassName($item)."&id=".$value."'><i class='fa fa-trash-o' aria-hidden='true'></i></i></a><a class='edit-button' href='?action=edit&page=".$oneItem['type']."&class=".$item->getClassName($item)."&id=".$value."'><i class='fa  fa-pencil-square-o' aria-hidden='true'></a></td>";
     }elseif($key != "file" && $key != "text"){
     echo "<td>".$value."</td>";
   }
